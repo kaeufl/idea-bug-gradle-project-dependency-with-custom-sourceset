@@ -1,0 +1,4 @@
+rootProject.name = 'gradle-multimodule-sourceset-test'
+include 'provider'
+include 'consumer'
+

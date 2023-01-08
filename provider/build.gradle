@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'idea'
+}
+
+group 'org.example'
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    custom
+}
+
+dependencies {
+    // uncommenting the following line (and using the java-library plugin) fixes the build in IntelliJ
+    // api sourceSets.custom.output
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+jar {
+    // Add the custom source set to the main jar
+    from sourceSets.custom.output
+}
+
+test {
+    useJUnitPlatform()
+}
